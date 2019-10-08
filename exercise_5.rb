@@ -3,7 +3,37 @@
 #      "Ethay ickquay oxfay umpedjay overway ethay azylay ogday"
 
 def pig_latin_sentence(sentence)
+  pig_sentence = ""
+  sentence.split(" ").each { |word|
+    pig_sentence += "#{pig_latin(word)} "
+  }
+  
+  pig_sentence[0..(pig_sentence.length - 2)]
+end
 
+def pig_latin(word)
+  vowels = ["a", "e", "i", "o", "u"]
+  consonants = ""
+
+  return "#{word[2..word.length]}quay" if word[0..1] == "qu"
+
+  word.chars.each { |letter|
+      if !(vowels.include? letter)
+          consonants += letter
+      else
+          break
+      end
+  }
+
+  consonantLength = consonants.length
+
+  result = consonantLength > 0 ? "#{word[(consonantLength)..word.length]}#{consonants}ay" : "#{word}way"
+
+  if word[0] === word[0].capitalize
+      result.capitalize
+  else
+      result
+  end
 end
 
 ## Tests:

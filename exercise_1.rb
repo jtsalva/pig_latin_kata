@@ -11,7 +11,7 @@
 # Assume your user is a developer — e.g. you don't need to write a user interface.
 
 def pig_latin(word)
-
+    word.start_with?("a", "e", "i", "o", "u") ? word.concat("way") : word[1..word.length] += "#{word[0]}ay"
 end
 
 ## Tests:
