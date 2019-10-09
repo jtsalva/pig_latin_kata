@@ -9,15 +9,9 @@ def pig_latin(word)
     consonants = ""
 
     return "#{word[2..word.length]}quay" if word[0..1] == "qu"
-
     word.chars.each { |letter|
-        if !(vowels.include? letter)
-            consonants += letter
-        else
-            break
-        end
+        !(vowels.include? (letter)) ? consonants += letter : break
     }
-
     consonantLength = consonants.length
     consonantLength > 0 ? "#{word[(consonantLength)..word.length]}#{consonants}ay" : "#{word}way"
 end

@@ -18,22 +18,14 @@ def pig_latin(word)
   return "#{word[2..word.length]}quay" if word[0..1] == "qu"
 
   word.chars.each { |letter|
-      if !(vowels.include? letter)
-          consonants += letter
-      else
-          break
-      end
+    !(vowels.include? (letter)) ? consonants += letter : break
   }
 
   consonantLength = consonants.length
 
   result = consonantLength > 0 ? "#{word[(consonantLength)..word.length]}#{consonants}ay" : "#{word}way"
 
-  if word[0] === word[0].capitalize
-      result.capitalize
-  else
-      result
-  end
+  word[0] === word[0].capitalize ? result.capitalize : result
 end
 
 ## Tests:
