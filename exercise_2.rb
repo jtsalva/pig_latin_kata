@@ -11,15 +11,10 @@
 def pig_latin(word)
     vowels = ["a", "e", "i", "o", "u"]
     consonants = ""
-
-    word.chars.each { |letter|
-        if !(vowels.include? letter)
-            consonants += letter
-        else
-            break
-        end
+    word.chars.each { 
+        |letter|
+        !(vowels.include? (letter)) ? consonants += letter : break
     }
-
     consonantLength = consonants.length
     consonantLength > 0 ? "#{word[(consonantLength)..word.length]}#{consonants}ay" : "#{word}way"
 end
